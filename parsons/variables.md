@@ -1,7 +1,9 @@
 ---
 layout: default
-title: Example 2
+title: Variables
 ---
+## 1. Swap the variables
+Arrange the code so that it swaps the values of `x` and `y`
 <div id="sortableTrash" class="sortable-code"></div>
 <div id="sortable" class="sortable-code"></div>
 <div style="clear:both;"></div>
@@ -38,4 +40,6 @@ $("#feedbackLink").click(function(event){
 });
 </script>
 
-[Previous](./example1.html)
+
+
+[Back to list of Practice Problems](../index.html)
