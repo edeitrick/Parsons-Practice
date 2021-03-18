@@ -4,40 +4,57 @@ title: Variables
 ---
 ## 1. Swap the variables
 Arrange the code so that it swaps the values of `x` and `y`
-<div id="sortableTrash" class="sortable-code"></div>
-<div id="sortable" class="sortable-code"></div>
-<div style="clear:both;"></div>
-
-<p>
-    <input id="feedbackLink" value="Get Feedback" type="button" />
-    <input id="newInstanceLink" value="Reset Problem" type="button" />
-</p>
-
-<script type="text/javascript">
-var initial = "1\n" +
-    "2\n" +
-    "3\n" +
-    "4\n" +
-    "5";
-var parsonsPuzzle2 = new ParsonsWidget({
-    "sortableId": "sortable",
+<div id="question1-sortableTrash" class="sortable-code"></div> 
+<div id="question1-sortable" class="sortable-code"></div> 
+<div style="clear:both;"></div> 
+<p> 
+    <input id="question1-feedbackLink" value="Get Feedback" type="button" /> 
+    <input id="question1-newInstanceLink" value="Reset Problem" type="button" /> 
+</p> 
+<script type="text/javascript"> 
+(function(){
+  var initial = "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$\n" +
+    "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$\n" +
+    "$$toggle::x::y::tmp$$ = $$toggle::x::y::tmp$$";
+  var parsonsPuzzle = new ParsonsWidget({
+    "sortableId": "question1-sortable",
     "max_wrong_lines": 10,
-    "grader": ParsonsWidget._graders.LineBasedGrader,
+    "grader": ParsonsWidget._graders.VariableCheckGrader,
     "exec_limit": 2500,
-    "can_indent": true,
+    "can_indent": false,
     "x_indent": 50,
-    "lang": "en"
-});
-parsonsPuzzle2.init(initial);
-parsonsPuzzle2.shuffleLines();
-$("#newInstanceLink").click(function(event){
-    event.preventDefault();
-    parsonsPuzzle2.shuffleLines();
-});
-$("#feedbackLink").click(function(event){
-    event.preventDefault();
-    parsonsPuzzle2.getFeedback();
-});
+    "lang": "en",
+    "trashId": "question1-sortableTrash",
+    "vartests": [
+        {
+            "message": "X value is correct",
+            "initcode": "x = 2\ny = 1",
+            "code": "",
+            "variables": {
+                "x": 1
+            }
+        },
+        {
+            "message": "Y value is correct",
+            "initcode": "x = 2\ny = 1",
+            "code": "",
+            "variables": {
+                "y": 2
+            }
+        }
+    ]
+  });
+  parsonsPuzzle.init(initial);
+  parsonsPuzzle.shuffleLines();
+  $("#question1-newInstanceLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.shuffleLines(); 
+  }); 
+  $("#question1-feedbackLink").click(function(event){ 
+      event.preventDefault(); 
+      parsonsPuzzle.getFeedback(); 
+  }); 
+})(); 
 </script>
 
 
