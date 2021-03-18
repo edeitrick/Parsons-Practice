@@ -116,4 +116,4 @@ Construct a C++ program that prints out "Hello World!"
 })(); 
 </script>
 
-[Back to list of Practice Problems](./index.html)
+[Back to list of Practice Problems](../index.html)
